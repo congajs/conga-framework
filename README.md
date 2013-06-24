@@ -2,5 +2,5 @@
 
 ## Overview
 
-This is the core bundle for the CongaJS framework.
+This is the core bundle for the [CongaJS](https://github.com/congajs/conga) framework.
 
