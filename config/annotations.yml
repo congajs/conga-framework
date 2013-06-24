@@ -2,7 +2,7 @@ parameters:
 
     # the annotation listeners
     conga.controller.annotation.listener.constructor:            conga-framework:listener/controller-annotation
-    conga.template.annotation.listener.constructor: 	         conga-framework:listener/annotation/template
+    conga.template.annotation.listener.constructor:              conga-framework:listener/annotation/template
 
     # controller annotation handlers
     conga.controller.filter.annotations.handler.constructor:     conga-framework:annotation/controller/handler/filter

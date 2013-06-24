@@ -6,15 +6,15 @@ parameters:
 
     # general classes
     namespace.resolver.constructor:                              conga-framework:namespace/resolver
-    router.constructor:                            	             conga-framework:router/router
+    router.constructor:                                          conga-framework:router/router
     websocket.router.constructor:                                conga-framework:router/websocket
-    event.dispatcher.constructor:                  	             conga-framework:event/dispatcher
+    event.dispatcher.constructor:                                conga-framework:event/dispatcher
 
     # loggers
     conga.logger.listener.constructor:                           conga-framework:listener/logger
 
     # kernel lifecycle listeners
-    conga.express.listener.constructor:           		         conga-framework:listener/express
+    conga.express.listener.constructor:                          conga-framework:listener/express
     conga.websocket.listener.constructor:                        conga-framework:listener/websocket
  
     # filter runner
