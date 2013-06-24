@@ -1,0 +1,37 @@
+{
+  "name": "conga-framework",
+  "version": "0.0.1",
+  "description": "an MVC framework with dependency injection, annotations, etc...",
+  "directories": {
+    "test": "test"
+  },
+  "main": "./lib/conga.js",
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/congajs/conga-framework.git"
+  },
+  "keywords": [
+
+  ],
+  "author": "Marc Roulias",
+  "license": "MIT",
+  "dependencies": {
+    "async": "0.2.8",
+  	"conga-annotations": "0.0.3",
+  	"conga-dependency-injection": "0.0.3",
+    "express": "3.2.1",
+    "ini": "1.1.0",
+    "lodash": "1.3.1",    
+    "log4js": "0.6.6",
+    "wrench": "1.5.1",
+    "yamljs": "0.1.4"   
+  },
+  "devDependencies": {
+     "mocha": "1.9.0",
+     "should": "1.2.2"
+  },
+  "readmeFilename": "README.md"
+}

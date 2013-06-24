@@ -1,0 +1,104 @@
+imports:
+    - { resource : annotations.yml }
+    - { resource : rest.yml }
+
+parameters:
+
+    # general classes
+    namespace.resolver.constructor:                              conga-framework:namespace/resolver
+    router.constructor:                            	             conga-framework:router/router
+    websocket.router.constructor:                                conga-framework:router/websocket
+    event.dispatcher.constructor:                  	             conga-framework:event/dispatcher
+
+    # loggers
+    conga.logger.listener.constructor:                           conga-framework:listener/logger
+
+    # kernel lifecycle listeners
+    conga.express.listener.constructor:           		         conga-framework:listener/express
+    conga.websocket.listener.constructor:                        conga-framework:listener/websocket
+ 
+    # filter runner
+    conga.filter.runner.constructor:                             conga-framework:controller/filter-runner
+
+    # controller event listeners
+    conga.pre.controller.security.listener.constructor:          conga-framework:listener/security
+
+    conga.toolbar.listener.constructor:                          conga-framework:toolbar/listener
+
+    conga.ssl.handler.default.constructor:                       conga-framework:ssl/default
+
+    # random settings
+    response.x-powered-by: conga.js
+    session.cookie.name: conga
+    
+services:
+
+    # the namespace resolver
+    namespace.resolver:
+        constructor: "%namespace.resolver.constructor%"
+
+    # the router
+    router:
+        constructor: "%router.constructor%"
+        arguments: ['@service_container']
+         
+    # the router
+    websocket.router:
+        constructor: "%websocket.router.constructor%"
+        arguments: ['@service_container']
+
+    # the event dispatcher
+    event.dispatcher:
+        constructor: "%event.dispatcher.constructor%"
+
+    # the logger listener
+    conga.logger.listener:
+        constructor: "%conga.logger.listener.constructor%"
+        tags:
+            - { name: kernel.event, event: kernel.compile, method: onKernelBoot, priority: -1024 }
+
+    # the express listener
+    conga.express.listener:
+        constructor: "%conga.express.listener.constructor%"
+        tags:
+            - { name: kernel.event, event: kernel.server_boot, method: onKernelBoot, priority: 8 }
+            - { name: kernel.event, event: kernel.server_boot, method: onKernelServerBoot, priority: 2048 }
+            - { name: kernel.event, event: kernel.register_middleware, method: onKernelRegisterMiddleware, priority: 64 }
+
+    # the filter runner
+    conga.filter.runner:
+        constructor: "%conga.filter.runner.constructor%"
+        arguments: ['@service_container']
+
+    # listener that handles security annotations for a controller action
+    conga.pre.controller.security.listener:
+        constructor: "%conga.pre.controller.security.listener.constructor%"
+        tags:
+            - { name: kernel.pre_controller, method: onPreController }
+
+    # template url() helper
+    conga.template.helper.url:
+        constructor: conga-framework:helper/url
+        arguments: ["@router"]
+        tags:
+            - { name: template.helper }
+
+    # template path() helper
+    conga.template.helper.path:
+        constructor: conga-framework:helper/path
+        arguments: ["@service_container"]
+        tags:
+            - { name: template.helper } 
+
+    # toolbar listener
+    conga.toolbar.listener:
+        constructor: %conga.toolbar.listener.constructor%
+        tags: 
+            - { name : kernel.event, event: kernel.server_boot, method: onKernelServerBoot, priority: 2 }
+            - { name : kernel.event, event: kernel.response, method: onResponse, priority: 1024 }
+
+    # default SSL check handler
+    conga.ssl.handler.default:
+        constructor: %conga.ssl.handler.default.constructor%
+
+                      

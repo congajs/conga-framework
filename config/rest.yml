@@ -1,0 +1,38 @@
+parameters:
+
+    # rest manager
+    rest.manager.constructor: conga-framework:rest/manager
+
+    # default REST method mapping
+    rest.methods:
+
+        # normal uris
+        - { path : '/', action: 'findAll', method: 'GET', name: 'find.all' }
+        - { path : '/:id', action: 'find', method: 'GET', name: 'find.one' }     
+        - { path : '/', action: 'create', method: 'POST', name: 'create' }
+        - { path : '/:id', action: 'update', method: 'PUT', name: 'update' }        
+        - { path : '/', action: 'delete', method: 'DELETE', name: 'delete' }
+
+        # backbone special uris
+        # - { path : '/update/:id', action: 'update', method: 'PUT' }
+        # - { path : '/destroy/:id', action: 'destroy', method: 'DELETE' }
+    
+    # REST parameter mapping
+    rest.parameters:
+        SORT: sort
+        LIMIT: limit
+        SKIP: skip
+        CRITERIA: criteria
+
+    # REST result property names
+    rest.response.properties:
+        RESULTS: results
+        TOTAL_RESULTS: totalResults
+
+services:
+
+    # the REST manager
+    rest.manager:
+        constructor: "%rest.manager.constructor%"
+        tags:
+            - { name: kernel.event, event: kernel.compile, method: onKernelCompile, priority: 1 }
