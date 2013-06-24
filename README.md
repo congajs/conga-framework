@@ -1,4 +1,4 @@
-# conga-dependency-injection [![Build Status](https://secure.travis-ci.org/congajs/conga-framework.png)](http://travis-ci.org/congajs/conga-framework)
+# conga-framework [![Build Status](https://secure.travis-ci.org/congajs/conga-framework.png)](http://travis-ci.org/congajs/conga-framework)
 
 ## Overview
 
