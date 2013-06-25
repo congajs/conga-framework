@@ -1,7 +1,7 @@
 {
   "name": "conga-framework",
   "version": "0.0.1",
-  "description": "an MVC framework with dependency injection, annotations, etc...",
+  "description": "Core Bundle for the CongaJS framework",
   "directories": {
     "test": "test"
   },
