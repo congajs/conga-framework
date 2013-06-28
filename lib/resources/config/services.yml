@@ -1,6 +1,7 @@
 imports:
     - { resource : annotations.yml }
     - { resource : rest.yml }
+    - { resource : util.yml }
 
 parameters:
 
@@ -88,7 +89,14 @@ services:
         constructor: conga-framework:helper/path
         arguments: ["@service_container"]
         tags:
-            - { name: template.helper } 
+            - { name: template.helper }
+
+    # conga client js helper
+    conga.template.helper.conga:
+        constructor: conga-framework:helper/conga
+        arguments: ["@service_container"]
+        tags:
+            - { name: template.helper }
 
     # toolbar listener
     conga.toolbar.listener:

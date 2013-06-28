@@ -1,0 +1,16 @@
+# register modules that will probably be used in other bundles
+# this should eliminate the need to have multiple copies of
+# these modules throughout a project
+services:
+
+    # async module
+    async:
+        constructor: async
+
+    # lodash module
+    lodash:
+        constructor: lodash
+
+    # wrench module
+    wrench:
+        constructor: wrench
