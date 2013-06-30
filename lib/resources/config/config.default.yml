@@ -43,10 +43,5 @@ framework:
         cookie_name:    congajs
         lifetime:       360000
         store:
-            type:       connect-redis
+            type:       memory
             options:
-                host:   %redis.host%
-                port:   %redis.port%
-                prefix: conga:sessions:
-
-
