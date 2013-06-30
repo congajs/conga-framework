@@ -5,7 +5,6 @@ framework:
     app:
         host:  localhost
         port:  3000
-        debug: true
 
     # ssl settings
     ssl:
@@ -39,7 +38,7 @@ framework:
     # session config
     session:
         key:            conga.sid
-        secret:         this-is-an-unsecret-secret
+        secret:         this-is-a-nonsecret-secret
         cookie_name:    congajs
         lifetime:       360000
         store:
