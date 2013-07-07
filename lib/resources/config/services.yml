@@ -1,6 +1,5 @@
 imports:
     - { resource : annotations.yml }
-    - { resource : rest.yml }
     - { resource : util.yml }
 
 parameters:

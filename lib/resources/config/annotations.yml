@@ -18,8 +18,6 @@ services:
     # the controller annotation listener
     conga.controller.annotation.listener:
         constructor: "%conga.controller.annotation.listener.constructor%"
-        arguments:
-            - [jsonp, pre-filter, post-filter, rest-controller, rest-modify-criteria, route, ssl, template, security, websocket, websocket-rest]
         tags:
             - { name: kernel.event, event: kernel.compile, method: onKernelCompile, priority: 1 }
           
