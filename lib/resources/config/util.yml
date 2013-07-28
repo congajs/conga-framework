@@ -7,6 +7,10 @@ services:
     async:
         constructor: async
 
+    # conga-annotations module
+    conga.annotations:
+        constructor: conga-annotations
+
     # lodash module
     lodash:
         constructor: lodash
@@ -14,3 +18,4 @@ services:
     # wrench module
     wrench:
         constructor: wrench
+
