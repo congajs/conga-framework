@@ -1,6 +1,6 @@
 {
   "name": "conga-framework",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Core Bundle for the Conga.js framework",
   "directories": {
     "test": "test"
@@ -20,7 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "async": "0.2.8",
-    "conga-annotations": "0.1.4",
+    "conga-annotations": "0.1.5",
     "conga-dependency-injection": "0.0.3",
     "express": "3.4.7",
     "http-status": "0.1.4",
