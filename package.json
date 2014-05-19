@@ -1,6 +1,6 @@
 {
   "name": "conga-framework",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Core Bundle for the Conga.js framework",
   "directories": {
     "test": "test"
