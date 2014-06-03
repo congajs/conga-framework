@@ -27,6 +27,9 @@ parameters:
 
     conga.ssl.handler.default.constructor:                       conga-framework:ssl/default
 
+    # conga services
+    conga.ioc.tag.sorter.constructor:                             conga-framework:ioc/tag-sorter
+
     # random settings
     response.x-powered-by: conga.js
     session.cookie.name: conga
@@ -108,4 +111,6 @@ services:
     conga.ssl.handler.default:
         constructor: %conga.ssl.handler.default.constructor%
 
-                      
+    # conga ioc tag-sorter
+    conga.ioc.tag.sorter:
+        constructor: %conga.ioc.tag.sorter.constructor%
