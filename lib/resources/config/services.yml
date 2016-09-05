@@ -16,7 +16,8 @@ parameters:
     # kernel lifecycle listeners
     conga.express.listener.constructor:                          conga-framework:listener/express
     conga.websocket.listener.constructor:                        conga-framework:listener/websocket
- 
+    conga.typescript.listener.constructor:                       conga-framework:listener/typescript
+
     # filter runner
     conga.filter.runner.constructor:                             conga-framework:controller/filter-runner
 
@@ -28,7 +29,7 @@ parameters:
     conga.ssl.handler.default.constructor:                       conga-framework:ssl/default
 
     # conga services
-    conga.ioc.tag.sorter.constructor:                             conga-framework:ioc/tag-sorter
+    conga.ioc.tag.sorter.constructor:                            conga-framework:ioc/tag-sorter
 
     # random settings
     response.x-powered-by: conga.js
@@ -59,6 +60,14 @@ services:
         constructor: "%conga.logger.listener.constructor%"
         tags:
             - { name: kernel.event, event: kernel.compile, method: onKernelBoot, priority: -1024 }
+
+    # the controller annotation listener
+    # conga.typescript.listener:
+    #     constructor: "%conga.typescript.listener.constructor%"
+    #     tags:
+    #         - { name: kernel.event, event: kernel.compile, method: onKernelCompile, priority: -512 }
+
+
 
     # the express listener
     conga.express.listener:
