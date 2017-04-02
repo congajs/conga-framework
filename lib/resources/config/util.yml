@@ -23,6 +23,9 @@ services:
     lodash:
         constructor: lodash
 
+    object-sizeof:
+        constructor: object-sizeof
+
     # wrench module
     wrench:
         constructor: wrench

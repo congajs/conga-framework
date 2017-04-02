@@ -51,9 +51,9 @@ services:
         tags:
             - { name: controller.annotation.handler, method: handleAnnotations } 
 
-    # handler to process the websocket annotations on controllers      
-    conga.controller.websocket.annotations.handler:
-        constructor: "%conga.controller.websocket.annotations.handler.constructor%"
-        tags:
-            - { name: controller.annotation.handler, method: handleAnnotations } 
+    # # handler to process the websocket annotations on controllers      
+    # conga.controller.websocket.annotations.handler:
+    #     constructor: "%conga.controller.websocket.annotations.handler.constructor%"
+    #     tags:
+    #         - { name: controller.annotation.handler, method: handleAnnotations } 
 

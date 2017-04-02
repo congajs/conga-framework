@@ -110,11 +110,11 @@ services:
             - { name: template.helper }
 
     # toolbar listener
-    conga.toolbar.listener:
-        constructor: %conga.toolbar.listener.constructor%
-        tags: 
-            - { name : kernel.event, event: kernel.server_boot, method: onKernelServerBoot, priority: 2 }
-            - { name : kernel.event, event: kernel.response, method: onResponse, priority: 1024 }
+    # conga.toolbar.listener:
+    #     constructor: %conga.toolbar.listener.constructor%
+    #     tags: 
+    #         - { name : kernel.event, event: kernel.server_boot, method: onKernelServerBoot, priority: 2 }
+    #         - { name : kernel.event, event: kernel.response, method: onResponse, priority: 1024 }
 
     # default SSL check handler
     conga.ssl.handler.default:
