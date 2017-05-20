@@ -6,16 +6,6 @@ framework:
         host:  localhost
         port:  3000
 
-    # ssl settings
-    ssl:
-        enabled: true
-        key:     key.pem
-        cert:    cert.pem
-        ca:      ''
-        port:    3001
-        handler: conga.ssl.handler.default
-        host:    localhost:3001
-
     # express settings
     express:
         view:

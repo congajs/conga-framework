@@ -1,0 +1,10 @@
+parameters:
+
+    test.bundle.service.class: test-bundle:service/TestService
+
+services:
+
+    test.bundle.service:
+
+        constructor: "%test.bundle.service.class%"
+        arguments: ['@service_container']

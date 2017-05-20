@@ -1,32 +1,32 @@
 {
   "name": "conga-framework",
-  "version": "0.0.28",
+  "version": "2.0.0-dev",
   "description": "Core Bundle for the Conga.js framework",
   "directories": {
     "test": "test"
   },
   "main": "./lib/conga.js",
   "scripts": {
-    "test": "mocha test/*.js"
+    "test": "./node_modules/jasmine/bin/jasmine.js"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/congajs/conga-framework.git"
   },
-  "keywords": [
-
-  ],
+  "keywords": [],
   "author": "Marc Roulias",
   "contributors": [
-		{
-			"name": "Anthony Matarazzo" ,
-			"email": "email@anthonymatarazzo.com"
-		}
+    {
+      "name": "Anthony Matarazzo",
+      "email": "email@anthonymatarazzo.com"
+    }
   ],
   "license": "MIT",
+  "engines": {
+      "node" : "6.0.0"
+  },
   "dependencies": {
     "async": "0.2.8",
-    "babel-preset-latest": "6.14.0",
     "bcrypt": "0.8.7",
     "body-parser": "1.15.2",
     "change-case": "3.0.0",
@@ -36,16 +36,15 @@
     "fs-extra": "0.30.0",
     "http-status": "0.2.3",
     "ini": "1.3.4",
-    "lodash": "4.15.0",    
-    "log4js": "0.6.38",
+    "lodash": "4.15.0",
+    "log4js": "1.1.0",
     "object-sizeof": "1.1.1",
-    "typescript.api": "0.7.7",
     "yamljs": "0.1.4",
     "wrench": "1.5.9"
   },
   "devDependencies": {
-     "mocha": "1.9.0",
-     "should": "1.2.2"
+    "jasmine": "^2.6.0",
+    "request": "^2.81.0"
   },
   "readmeFilename": "README.md"
 }

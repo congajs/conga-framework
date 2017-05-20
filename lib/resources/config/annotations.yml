@@ -1,15 +1,14 @@
 parameters:
 
     # the annotation listeners
-    conga.controller.annotation.listener.constructor:            conga-framework:listener/controller-annotation
+    conga.controller.annotation.listener.constructor:            conga-framework:listener/ControllerAnnotationListener
     conga.template.annotation.listener.constructor:              conga-framework:listener/annotation/template
 
     # controller annotation handlers
-    conga.controller.filter.annotations.handler.constructor:     conga-framework:annotation/controller/handler/filter
-    conga.controller.routing.annotations.handler.constructor:    conga-framework:annotation/controller/handler/routing
+    conga.controller.filter.annotations.handler.constructor:     conga-framework:annotation/controller/handler/FilterAnnotationHandler
+    conga.controller.routing.annotations.handler.constructor:    conga-framework:annotation/controller/handler/RoutingAnnotationHandler
     conga.controller.security.annotations.handler.constructor:   conga-framework:annotation/controller/handler/security
-    conga.controller.ssl.annotations.handler.constructor:        conga-framework:annotation/controller/handler/ssl
-    conga.controller.template.annotations.handler.constructor:   conga-framework:annotation/controller/handler/template
+    conga.controller.template.annotations.handler.constructor:   conga-framework:annotation/controller/handler/TemplateAnnotationHandler
     conga.controller.websocket.annotations.handler.constructor:  conga-framework:annotation/controller/handler/websocket
 
 
@@ -20,40 +19,27 @@ services:
         constructor: "%conga.controller.annotation.listener.constructor%"
         tags:
             - { name: kernel.event, event: kernel.compile, method: onKernelCompile, priority: 1 }
-          
+
     # handler to process the routing annotations on controllers
     conga.controller.routing.annotations.handler:
         constructor: "%conga.controller.routing.annotations.handler.constructor%"
         tags:
-            - { name: controller.annotation.handler, method: handleAnnotations }  
-       
-    # handler to process the template annotations on controllers      
+            - { name: controller.annotation.handler, method: handleAnnotations }
+
+    # handler to process the template annotations on controllers
     conga.controller.template.annotations.handler:
         constructor: "%conga.controller.template.annotations.handler.constructor%"
         tags:
-            - { name: controller.annotation.handler, method: handleAnnotations }           
-      
-    # handler to process the filter annotations on controllers      
+            - { name: controller.annotation.handler, method: handleAnnotations }
+
+    # handler to process the filter annotations on controllers
     conga.controller.filter.annotations.handler:
         constructor: "%conga.controller.filter.annotations.handler.constructor%"
         tags:
-            - { name: controller.annotation.handler, method: handleAnnotations } 
+            - { name: controller.annotation.handler, method: handleAnnotations }
 
-    # handler to process the security annotations on controllers      
+    # handler to process the security annotations on controllers
     conga.controller.security.annotations.handler:
         constructor: "%conga.controller.security.annotations.handler.constructor%"
         tags:
-            - { name: controller.annotation.handler, method: handleAnnotations } 
-
-    # handler to process the ssl annotations on controllers      
-    conga.controller.ssl.annotations.handler:
-        constructor: "%conga.controller.ssl.annotations.handler.constructor%"
-        tags:
-            - { name: controller.annotation.handler, method: handleAnnotations } 
-
-    # # handler to process the websocket annotations on controllers      
-    # conga.controller.websocket.annotations.handler:
-    #     constructor: "%conga.controller.websocket.annotations.handler.constructor%"
-    #     tags:
-    #         - { name: controller.annotation.handler, method: handleAnnotations } 
-
+            - { name: controller.annotation.handler, method: handleAnnotations }

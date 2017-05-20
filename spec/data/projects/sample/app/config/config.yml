@@ -1,0 +1,11 @@
+# include other config files
+imports:
+    - { resource : parameters.ini }
+    - { resource : bundles.yml }
+
+framework:
+
+    # application settings
+    app:
+        host:  %app.http.host%
+        port:  %app.http.port%

@@ -1,0 +1,22 @@
+# bundles to enable
+bundles:
+
+    all:
+
+        # project bundles (from src/ directory)
+        - demo-bundle
+
+        # core conga bundles (from node_modules/ directory)
+        #- conga-assets
+        # - conga-bass
+        #- conga-bower
+        #- conga-client-template
+        # - conga-rest
+        # - conga-socketio
+        # - conga-twig
+        # - conga-validation
+
+    test:
+
+        # add bundles that are only used for development
+        - test-bundle
