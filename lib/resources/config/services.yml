@@ -5,7 +5,7 @@ imports:
 parameters:
 
     # general classes
-    namespace.resolver.constructor:                              conga-framework:namespace/resolver
+    namespace.resolver.constructor:                              conga-framework:namespace/Resolver
     router.constructor:                                          conga-framework:router/router
     websocket.router.constructor:                                conga-framework:router/websocket
     event.dispatcher.constructor:                                conga-framework:event/dispatcher
