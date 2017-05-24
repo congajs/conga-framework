@@ -5,28 +5,26 @@ imports:
 parameters:
 
     # general classes
-    namespace.resolver.constructor:                              conga-framework:namespace/Resolver
-    router.constructor:                                          conga-framework:router/router
-    websocket.router.constructor:                                conga-framework:router/websocket
-    event.dispatcher.constructor:                                conga-framework:event/dispatcher
+    namespace.resolver.constructor: conga-framework:namespace/Resolver
+    router.constructor: conga-framework:router/router
+    event.dispatcher.constructor: conga-framework:event/EventDispatcher
 
     # loggers
-    conga.logger.listener.constructor:                           conga-framework:listener/LoggerListener
+    conga.logger.listener.constructor: conga-framework:listener/LoggerListener
 
     # kernel lifecycle listeners
-    conga.express.listener.constructor:                          conga-framework:listener/ExpressListener
-    conga.websocket.listener.constructor:                        conga-framework:listener/websocket
+    conga.express.listener.constructor: conga-framework:listener/ExpressListener
 
     # filter runner
-    conga.filter.runner.constructor:                             conga-framework:controller/filter-runner
+    conga.filter.runner.constructor: conga-framework:controller/FilterRunner
 
-    # controller event listeners
-    conga.pre.controller.security.listener.constructor:          conga-framework:listener/security
-
-    conga.toolbar.listener.constructor:                          conga-framework:toolbar/listener
+    conga.route.runner.constructor: conga-framework:request/RouteRunner
 
     # conga services
-    conga.ioc.tag.sorter.constructor:                            conga-framework:ioc/TagSorter
+    conga.ioc.tag.sorter.constructor: conga-framework:ioc/TagSorter
+
+    # response handlers
+    conga.json.response.handler.constructor: conga-framework:response/JsonResponseHandler
 
     # random settings
     response.x-powered-by: conga.js
@@ -43,11 +41,6 @@ services:
         constructor: "%router.constructor%"
         arguments: ['@service_container']
 
-    # the router
-    websocket.router:
-        constructor: "%websocket.router.constructor%"
-        arguments: ['@service_container']
-
     # the event dispatcher
     event.dispatcher:
         constructor: "%event.dispatcher.constructor%"
@@ -57,14 +50,6 @@ services:
         constructor: "%conga.logger.listener.constructor%"
         tags:
             - { name: kernel.event, event: kernel.compile, method: onKernelBoot, priority: -1024 }
-
-    # the controller annotation listener
-    # conga.typescript.listener:
-    #     constructor: "%conga.typescript.listener.constructor%"
-    #     tags:
-    #         - { name: kernel.event, event: kernel.compile, method: onKernelCompile, priority: -512 }
-
-
 
     # the express listener
     conga.express.listener:
@@ -79,11 +64,9 @@ services:
         constructor: "%conga.filter.runner.constructor%"
         arguments: ['@service_container']
 
-    # listener that handles security annotations for a controller action
-    conga.pre.controller.security.listener:
-        constructor: "%conga.pre.controller.security.listener.constructor%"
-        tags:
-            - { name: kernel.pre_controller, method: onPreController }
+    # the route runner
+    conga.route.runner:
+        constructor: "%conga.route.runner.constructor%"
 
     # template url() helper
     conga.template.helper.url:
@@ -106,13 +89,10 @@ services:
         tags:
             - { name: template.helper }
 
-    # toolbar listener
-    # conga.toolbar.listener:
-    #     constructor: %conga.toolbar.listener.constructor%
-    #     tags:
-    #         - { name : kernel.event, event: kernel.server_boot, method: onKernelServerBoot, priority: 2 }
-    #         - { name : kernel.event, event: kernel.response, method: onResponse, priority: 1024 }
-
     # conga ioc tag-sorter
     conga.ioc.tag.sorter:
         constructor: %conga.ioc.tag.sorter.constructor%
+
+    # the default json response handler
+    conga.json.response.handler:
+        constructor: %conga.json.response.handler.constructor%

@@ -20,7 +20,7 @@ describe("Kernel", function() {
         kernel.boot(() => {
 
             request('http://localhost:5555', function (error, response, body) {
-console.log(body);
+//console.log(response);
               expect(response.statusCode).toEqual(200);
               expect(body).toEqual('{"foo":"bar"}');
               done();

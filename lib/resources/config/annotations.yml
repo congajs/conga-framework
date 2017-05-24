@@ -7,9 +7,7 @@ parameters:
     # controller annotation handlers
     conga.controller.filter.annotations.handler.constructor:     conga-framework:annotation/controller/handler/FilterAnnotationHandler
     conga.controller.routing.annotations.handler.constructor:    conga-framework:annotation/controller/handler/RoutingAnnotationHandler
-    conga.controller.security.annotations.handler.constructor:   conga-framework:annotation/controller/handler/security
     conga.controller.template.annotations.handler.constructor:   conga-framework:annotation/controller/handler/TemplateAnnotationHandler
-    conga.controller.websocket.annotations.handler.constructor:  conga-framework:annotation/controller/handler/websocket
 
 
 services:
@@ -35,11 +33,5 @@ services:
     # handler to process the filter annotations on controllers
     conga.controller.filter.annotations.handler:
         constructor: "%conga.controller.filter.annotations.handler.constructor%"
-        tags:
-            - { name: controller.annotation.handler, method: handleAnnotations }
-
-    # handler to process the security annotations on controllers
-    conga.controller.security.annotations.handler:
-        constructor: "%conga.controller.security.annotations.handler.constructor%"
         tags:
             - { name: controller.annotation.handler, method: handleAnnotations }
