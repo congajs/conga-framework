@@ -15,6 +15,10 @@ services:
     conga.annotations:
         constructor: conga-annotations
 
+    # fs-extra
+    fs-extra:
+        constructor: fs-extra
+
     # inflected module
     inflector:
         constructor: change-case
@@ -26,6 +30,6 @@ services:
     object-sizeof:
         constructor: object-sizeof
 
-    # wrench module
-    wrench:
-        constructor: wrench
+    # # wrench module
+    # wrench:
+    #     constructor: wrench

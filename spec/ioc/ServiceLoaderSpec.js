@@ -3,12 +3,16 @@ const DemoService = require('../data/projects/sample/src/demo-bundle/lib/service
 
 describe("ServiceLoader", function() {
 
-    var ServiceLoader = require('../../lib/ioc/ServiceLoader');
+    const BundleFinder = require('../../lib/bundle/BundleFinder');
+    const ServiceLoader = require('../../lib/ioc/ServiceLoader');
 
     beforeEach(function() {
-        loader = new ServiceLoader([
-            path.join(__dirname, '..', 'data', 'projects', 'sample', 'src')
-        ]);
+
+        finder = new BundleFinder({
+            'demo-bundle': path.join(__dirname, '..', 'data', 'projects', 'sample', 'src', 'demo-bundle')
+        });
+
+        loader = new ServiceLoader(finder);
     });
 
     it("should load service from project bundle", function() {
