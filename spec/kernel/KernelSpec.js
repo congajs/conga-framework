@@ -13,6 +13,11 @@ describe("Kernel", function() {
             'test',
             {}
         )
+
+        kernel.addBundlePaths({
+            'demo-bundle': path.join(__dirname, '..', 'data', 'projects', 'sample', 'src', 'demo-bundle'),
+            'test-bundle': path.join(__dirname, '..', 'data', 'projects', 'sample', 'src', 'test-bundle'),
+        })
     });
 
     it("should boot", function(done) {
