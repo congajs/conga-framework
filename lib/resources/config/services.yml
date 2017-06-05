@@ -91,8 +91,8 @@ services:
 
     # conga ioc tag-sorter
     conga.ioc.tag.sorter:
-        constructor: %conga.ioc.tag.sorter.constructor%
+        constructor: "%conga.ioc.tag.sorter.constructor%"
 
     # the default json response handler
     conga.json.response.handler:
-        constructor: %conga.json.response.handler.constructor%
+        constructor: "%conga.json.response.handler.constructor%"

@@ -21,7 +21,7 @@ framework:
             type: file
             level: DEBUG
             options:
-                filename:     %kernel.app_path%/logs/%kernel.environment%.log
+                filename:     "%kernel.app_path%/logs/%kernel.environment%.log"
                 max_log_size: 20480
                 backups:      3
 
