@@ -7,5 +7,5 @@ framework:
 
     # application settings
     app:
-        host:  %app.http.host%
-        port:  %app.http.port%
+        host: "%app.http.host%"
+        port: "%app.http.port%"
