@@ -27,4 +27,18 @@ module.exports = class DefaultController extends Controller {
         res.error("this is not correct");
     }
 
+    /**
+     * @Route("/promise-resolve", name="default.promise-resolve", methods=["GET"])
+     */
+    promiseResolve(req, res) {
+        return Promise.resolve({ message: 'this is a resolved promise' });
+    }
+
+    /**
+     * @Route("/promise-reject", name="default.promise-reject", methods=["GET"])
+     */
+    promiseReject(req, res) {
+        return Promise.reject(new ErrorResponse({ message: 'this is a rejected promise' }, 401));
+    }
+
 }

@@ -1,12 +1,14 @@
 const path = require('path');
 const request = require('request');
 
+const Kernel = require('../../lib/kernel/TestKernel');
+
 describe("Kernel", function() {
 
-    var Kernel = require('../../lib/kernel/TestKernel');
-    var kernel;
+    let kernel;
 
     beforeAll(function(done) {
+
         kernel = new Kernel(
             path.join(__dirname, '..', 'data', 'projects', 'sample'),
             'app',
@@ -60,6 +62,26 @@ describe("Kernel", function() {
 
         request('http://localhost:5555/this-path-doesnt-exist', (error, response, body) => {
             expect(response.statusCode).toEqual(404);
+            done();
+        });
+
+    });
+
+    it("should return a response for a resolved promise route", (done) => {
+
+        request('http://localhost:5555/promise-resolve', (error, response, body) => {
+            expect(response.statusCode).toEqual(200);
+            expect(body).toEqual('{"message":"this is a resolved promise"}');
+            done();
+        });
+
+    });
+
+    it("should return an error response for a rejected promise route", (done) => {
+
+        request('http://localhost:5555/promise-reject', (error, response, body) => {
+            expect(response.statusCode).toEqual(401);
+            expect(body).toEqual('{"message":"this is a rejected promise"}');
             done();
         });
 
