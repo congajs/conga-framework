@@ -2,13 +2,10 @@ parameters:
 
     # the annotation listeners
     conga.controller.annotation.listener.constructor:            conga-framework:listener/ControllerAnnotationListener
-    conga.template.annotation.listener.constructor:              conga-framework:listener/annotation/template
 
     # controller annotation handlers
     conga.controller.filter.annotations.handler.constructor:     conga-framework:annotation/controller/handler/FilterAnnotationHandler
     conga.controller.routing.annotations.handler.constructor:    conga-framework:annotation/controller/handler/RoutingAnnotationHandler
-    conga.controller.template.annotations.handler.constructor:   conga-framework:annotation/controller/handler/TemplateAnnotationHandler
-
 
 services:
 
@@ -22,13 +19,7 @@ services:
     conga.controller.routing.annotations.handler:
         constructor: "%conga.controller.routing.annotations.handler.constructor%"
         tags:
-            - { name: controller.annotation.handler, method: handleAnnotations }
-
-    # handler to process the template annotations on controllers
-    conga.controller.template.annotations.handler:
-        constructor: "%conga.controller.template.annotations.handler.constructor%"
-        tags:
-            - { name: controller.annotation.handler, method: handleAnnotations }
+            - { name: controller.annotation.handler, method: handleAnnotations, priority: -1024 }
 
     # handler to process the filter annotations on controllers
     conga.controller.filter.annotations.handler:

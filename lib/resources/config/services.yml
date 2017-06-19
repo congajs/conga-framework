@@ -18,6 +18,7 @@ parameters:
     # filter runner
     conga.filter.runner.constructor: conga-framework:controller/FilterRunner
 
+    # route runner
     conga.route.runner.constructor: conga-framework:request/RouteRunner
 
     # conga services
@@ -67,27 +68,6 @@ services:
     # the route runner
     conga.route.runner:
         constructor: "%conga.route.runner.constructor%"
-
-    # template url() helper
-    conga.template.helper.url:
-        constructor: conga-framework:helper/url
-        arguments: ["@router"]
-        tags:
-            - { name: template.helper }
-
-    # template path() helper
-    conga.template.helper.path:
-        constructor: conga-framework:helper/path
-        arguments: ["@service_container"]
-        tags:
-            - { name: template.helper }
-
-    # conga client js helper
-    conga.template.helper.conga:
-        constructor: conga-framework:helper/conga
-        arguments: ["@service_container"]
-        tags:
-            - { name: template.helper }
 
     # conga ioc tag-sorter
     conga.ioc.tag.sorter:
