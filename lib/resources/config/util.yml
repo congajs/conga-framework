@@ -13,7 +13,7 @@ services:
 
     # conga-annotations module
     conga.annotations:
-        constructor: '@conga/conga-annotations'
+        constructor: '@conga/annotations'
 
     # fs-extra
     fs-extra:
