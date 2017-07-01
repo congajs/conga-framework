@@ -1,11 +1,11 @@
 parameters:
 
     # the annotation listeners
-    conga.controller.annotation.listener.constructor:            conga-framework:listener/ControllerAnnotationListener
+    conga.controller.annotation.listener.constructor:            "@conga/framework:listener/ControllerAnnotationListener"
 
     # controller annotation handlers
-    conga.controller.filter.annotations.handler.constructor:     conga-framework:annotation/controller/handler/FilterAnnotationHandler
-    conga.controller.routing.annotations.handler.constructor:    conga-framework:annotation/controller/handler/RoutingAnnotationHandler
+    conga.controller.filter.annotations.handler.constructor:     "@conga/framework:annotation/controller/handler/FilterAnnotationHandler"
+    conga.controller.routing.annotations.handler.constructor:    "@conga/framework:annotation/controller/handler/RoutingAnnotationHandler"
 
 services:
 

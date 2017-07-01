@@ -5,27 +5,27 @@ imports:
 parameters:
 
     # general classes
-    namespace.resolver.constructor: conga-framework:namespace/Resolver
-    router.constructor: conga-framework:router/router
-    event.dispatcher.constructor: conga-framework:event/EventDispatcher
+    namespace.resolver.constructor: "@conga/framework:namespace/Resolver"
+    router.constructor: "@conga/framework:router/router"
+    event.dispatcher.constructor: "@conga/framework:event/EventDispatcher"
 
     # loggers
-    conga.logger.listener.constructor: conga-framework:listener/LoggerListener
+    conga.logger.listener.constructor: "@conga/framework:listener/LoggerListener"
 
     # kernel lifecycle listeners
-    conga.express.listener.constructor: conga-framework:listener/ExpressListener
+    conga.express.listener.constructor: "@conga/framework:listener/ExpressListener"
 
     # filter runner
-    conga.filter.runner.constructor: conga-framework:controller/FilterRunner
+    conga.filter.runner.constructor: "@conga/framework:controller/FilterRunner"
 
     # route runner
-    conga.route.runner.constructor: conga-framework:request/RouteRunner
+    conga.route.runner.constructor: "@conga/framework:request/RouteRunner"
 
     # conga services
-    conga.ioc.tag.sorter.constructor: conga-framework:ioc/TagSorter
+    conga.ioc.tag.sorter.constructor: "@conga/framework:ioc/TagSorter"
 
     # response handlers
-    conga.json.response.handler.constructor: conga-framework:response/JsonResponseHandler
+    conga.json.response.handler.constructor: "@conga/framework:response/JsonResponseHandler"
 
     # random settings
     response.x-powered-by: conga.js
