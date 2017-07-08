@@ -27,6 +27,9 @@ parameters:
     # response handlers
     conga.json.response.handler.constructor: "@conga/framework:response/JsonResponseHandler"
 
+    # builder
+    conga.builder.constructor: "@conga/framework:builder/Builder"
+
     # random settings
     response.x-powered-by: conga.js
     session.cookie.name: conga
@@ -76,3 +79,8 @@ services:
     # the default json response handler
     conga.json.response.handler:
         constructor: "%conga.json.response.handler.constructor%"
+
+    # the builder service
+    conga.builder:
+        constructor: "%conga.builder.constructor%"
+        arguments: ['@service_container']
