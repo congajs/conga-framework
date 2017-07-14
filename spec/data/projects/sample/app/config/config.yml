@@ -1,6 +1,6 @@
 # include other config files
 imports:
-    - { resource : parameters.ini }
+    - { resource : parameters.yml }
     - { resource : bundles.yml }
 
 framework:

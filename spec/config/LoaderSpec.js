@@ -2,10 +2,14 @@ const path = require('path');
 
 describe("Loader", function() {
 
-    var Loader = require('../../lib/config/Loader');
-    var config;
+    // set up environment variables for ENV tests
+    process.env['ENV_TEST'] = 'foo';
+    process.env['ENV_TEST_2'] = '9876';
 
-    beforeEach(function() {
+    const Loader = require('../../lib/config/Loader');
+    let config;
+
+    beforeAll(function() {
         loader = new Loader();
         config = loader.load(
             path.join(__dirname, '..', 'data', 'projects', 'sample'),
@@ -41,6 +45,18 @@ describe("Loader", function() {
 
     it("should have overwritten config with environment config", function() {
         expect(config.parameters['bundles.config']['framework']['app']['port']).toEqual(5555);
+    });
+
+    it("should have a parameter from ENV", function() {
+        expect(config.parameters['from.env']).toEqual('foo');
+    });
+
+    it("should have another parameter from ENV", function() {
+        expect(config.parameters['another.env']).toEqual('9876');
+    });
+
+    it("should should use a default value for ENV that wasn't found", function() {
+        expect(config.parameters['default.env']).toEqual('use this default');
     });
 
 });
