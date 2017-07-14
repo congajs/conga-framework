@@ -30,6 +30,8 @@ parameters:
     # builder
     conga.builder.constructor: "@conga/framework:builder/Builder"
 
+    conga.controller.compiler.constructor: "@conga/framework:compiler/ControllerCompiler"
+
     # random settings
     response.x-powered-by: conga.js
     session.cookie.name: conga
@@ -83,4 +85,9 @@ services:
     # the builder service
     conga.builder:
         constructor: "%conga.builder.constructor%"
+        arguments: ['@service_container']
+
+    # the controller compiler
+    conga.controller.compiler:
+        constructor: "%conga.controller.compiler.constructor%"
         arguments: ['@service_container']
