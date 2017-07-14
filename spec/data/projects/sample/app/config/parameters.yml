@@ -6,4 +6,4 @@ parameters:
     from.env: "$ENV{ENV_TEST, 'bar'}$"
     default.env: "$ENV{ENV_DOESNT_EXIST, 'use this default'}$"
     hello: there
-    another.env: "$ENV{ENV_TEST_2,1234}$"
+    another.env: "$ENV{ENV_TEST_2, '1234'}$"
