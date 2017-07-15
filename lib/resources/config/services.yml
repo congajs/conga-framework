@@ -32,10 +32,6 @@ parameters:
 
     conga.controller.compiler.constructor: "@conga/framework:compiler/ControllerCompiler"
 
-    # random settings
-    response.x-powered-by: conga.js
-    session.cookie.name: conga
-
 services:
 
     # the namespace resolver
@@ -45,7 +41,6 @@ services:
     # the router
     router:
         constructor: "%router.constructor%"
-        arguments: ['@service_container']
 
     # the event dispatcher
     event.dispatcher:

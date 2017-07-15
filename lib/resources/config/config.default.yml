@@ -8,12 +8,6 @@ framework:
 
     # express settings
     express:
-        view:
-            cache: true
-
-    # the web toolbar
-    toolbar:
-        enabled: true
 
     # the loggers
     logger:
@@ -25,12 +19,21 @@ framework:
                 max_log_size: 20480
                 backups:      3
 
-    # session config
-    session:
-        key:            conga.sid
-        secret:         this-is-a-nonsecret-secret
-        cookie_name:    congajs
-        lifetime:       360000
-        store:
-            type:       memory
-            options:
+    # error handlers
+    error:
+
+        404:
+
+            default:
+
+                route: ^/
+                controller: ""
+                action: ""
+
+        500:
+
+            default:
+
+                route: ^/
+                controller: ""
+                action: ""
