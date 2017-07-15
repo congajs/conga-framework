@@ -8,3 +8,11 @@ services:
 
         constructor: "%demo.bundle.service.class%"
         arguments: ['@service_container']
+
+    demo.function.service:
+
+        function: "demo-bundle:service/FunctionService"
+
+    demo.multiple.functions:
+
+        constructor: "demo-bundle:service/MultipleFunctions"

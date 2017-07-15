@@ -26,6 +26,22 @@ describe("Kernel", function() {
         });
     });
 
+    it("should have a function service in bundle config parameters", (done) => {
+
+        expect(typeof kernel.container.get('config').get('framework')['module.function']).toEqual('function');
+        expect(kernel.container.get('config').get('framework')['service.test']('world')).toEqual('hello world');
+        done();
+
+    });
+
+    it("should grab a function from a module in config parameters", (done) => {
+
+        expect(typeof kernel.container.get('config').get('framework')['service.test']).toEqual('function');
+        expect(kernel.container.get('config').get('framework')['service.test']('world')).toEqual('hello world');
+        done();
+
+    });
+
     it("should return a successful response", (done) => {
 
         request('http://localhost:5555', (error, response, body) => {
