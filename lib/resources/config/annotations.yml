@@ -13,7 +13,7 @@ services:
     conga.controller.annotation.listener:
         constructor: "%conga.controller.annotation.listener.constructor%"
         tags:
-            - { name: kernel.event, event: kernel.compile, method: onKernelCompile, priority: 1 }
+            - { name: kernel.event, event: kernel.compile_controllers, method: onKernelCompile, priority: 1 }
 
     # handler to process the routing annotations on controllers
     conga.controller.routing.annotations.handler:
