@@ -6,7 +6,7 @@ parameters:
 
     # general classes
     namespace.resolver.constructor: "@conga/framework:namespace/Resolver"
-    router.constructor: "@conga/framework:router/router"
+    router.constructor: "@conga/framework:router/Router"
     event.dispatcher.constructor: "@conga/framework:event/EventDispatcher"
 
     # loggers
