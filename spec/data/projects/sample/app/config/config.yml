@@ -9,3 +9,6 @@ framework:
     app:
         host: "%app.http.host%"
         port: "%app.http.port%"
+
+    service.test: "@demo.function.service"
+    module.function: "@demo.multiple.functions::hello"
