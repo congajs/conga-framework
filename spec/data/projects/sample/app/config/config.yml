@@ -10,5 +10,6 @@ framework:
         host: "%app.http.host%"
         port: "%app.http.port%"
 
-    service.test: "@demo.function.service"
-    module.function: "@demo.multiple.functions::hello"
+    service.test: "${demo.function.service}"
+    module.function: "${demo.multiple.functions::hello}"
+    path.with.scope: "@scope/name:in/namespace"

@@ -44,6 +44,13 @@ describe("Kernel", function() {
             done();
 
         });
+
+        it("should have a config parameter with a scope in the string", (done) => {
+
+            expect(kernel.container.get('config').get('framework')['path.with.scope']).toEqual('@scope/name:in/namespace');
+            done();
+            
+        });
     });
 
 
