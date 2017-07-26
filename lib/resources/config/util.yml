@@ -26,6 +26,3 @@ services:
     # lodash module
     lodash:
         constructor: lodash
-
-    object-sizeof:
-        constructor: object-sizeof

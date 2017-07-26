@@ -26,8 +26,8 @@
     "node": "6.0.0"
   },
   "dependencies": {
-    "@conga/annotations": "1.0.0",
-    "@conga/dependency-injection": "1.0.1",
+    "@conga/annotations": "1.0.1",
+    "@conga/dependency-injection": "1.0.2",
     "async": "2.4.1",
     "bcrypt": "1.0.2",
     "body-parser": "1.17.2",
@@ -39,7 +39,6 @@
     "js-yaml": "^3.8.4",
     "lodash": "4.17.4",
     "log4js": "1.1.1",
-    "object-sizeof": "1.2.0",
     "traverse": "^0.6.6"
   },
   "devDependencies": {

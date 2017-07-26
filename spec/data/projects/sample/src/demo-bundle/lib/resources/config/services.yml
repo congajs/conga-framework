@@ -5,7 +5,7 @@ parameters:
 services:
 
     demo.bundle.service:
-
+        alias: myDemoService
         constructor: "%demo.bundle.service.class%"
         arguments: ['@service_container']
 

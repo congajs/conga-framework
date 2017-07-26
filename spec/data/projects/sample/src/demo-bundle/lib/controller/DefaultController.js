@@ -27,4 +27,10 @@ module.exports = class DefaultController extends Controller {
         return Promise.reject(new ErrorResponse({ message: 'this is a rejected promise' }, 401));
     }
 
+    /**
+     * @Route("/inject-service", name="default.inject-services", methods=["GET"])
+     */
+    injectService(req, res, $myDemoService) {
+        res.return({foo: $myDemoService.sayHello()});
+    }
 }

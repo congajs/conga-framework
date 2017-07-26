@@ -49,7 +49,7 @@ describe("Kernel", function() {
 
             expect(kernel.container.get('config').get('framework')['path.with.scope']).toEqual('@scope/name:in/namespace');
             done();
-            
+
         });
     });
 
@@ -86,6 +86,19 @@ describe("Kernel", function() {
                 request('http://localhost:5555/test/promise-reject', (error, response, body) => {
                     expect(response.statusCode).toEqual(401);
                     expect(body).toEqual('{"message":"this is a rejected promise"}');
+                    done();
+                });
+
+            });
+        });
+
+        describe("Injected Service", function () {
+
+            it("should return a successful response using injected service", (done) => {
+
+                request('http://localhost:5555/test/inject-service', (error, response, body) => {
+                    expect(response.statusCode).toEqual(200);
+                    expect(body).toEqual('{"foo":"HELLO FROM DEMOSERVICE!!!"}');
                     done();
                 });
 
