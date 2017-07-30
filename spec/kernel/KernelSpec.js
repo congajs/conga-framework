@@ -26,6 +26,16 @@ describe("Kernel", function() {
         });
     });
 
+    describe('Configuration', function() {
+
+        it("should have the framework version in the container config parameters", (done) => {
+
+            expect(typeof kernel.container.getParameter('conga.version')).toEqual('string');
+            done();
+
+        });
+
+    });
 
     describe('Dependency Injection', function() {
 
@@ -51,6 +61,7 @@ describe("Kernel", function() {
             done();
 
         });
+
     });
 
 
