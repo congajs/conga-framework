@@ -30,7 +30,7 @@ module.exports = class DefaultController extends Controller {
     /**
      * @Route("/inject-service", name="default.inject-services", methods=["GET"])
      */
-    injectService(req, res, $myDemoService) {
+    injectService(req, res, $myDemoService, $container) {
         res.return({foo: $myDemoService.sayHello()});
     }
 }
