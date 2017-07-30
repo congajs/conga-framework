@@ -219,6 +219,18 @@ describe("Kernel", function() {
                 });
 
             });
+
+            it("should return a 403 error using buildErrorResponse", (done) => {
+
+                request('http://localhost:5555/error-test/build-error-response', (error, response, body) => {
+                    const json = JSON.parse(body);
+                    expect(response.statusCode).toEqual(403);
+                    expect(json.message).toEqual('Built using buildErrorResponse');
+                    expect(json.status).toEqual(403);
+                    done();
+                });
+
+            });
         });
 
     });

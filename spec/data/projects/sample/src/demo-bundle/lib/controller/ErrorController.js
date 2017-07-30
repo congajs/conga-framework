@@ -78,4 +78,14 @@ module.exports = class ErrorController extends Controller {
         res.error("this is not correct");
     }
 
+    /**
+     * @Route("/build-error-response", name="default.build-error-response-test", methods=["GET"])
+     */
+    buildErrorResponseTest(req, res) {
+        res.error(this.buildErrorResponse({
+            message: 'Built using buildErrorResponse',
+            status: 403
+        }, 403));
+    }
+
 }
