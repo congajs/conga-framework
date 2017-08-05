@@ -88,4 +88,17 @@ module.exports = class ErrorController extends Controller {
         }, 403));
     }
 
+    /**
+     * @Route("/invalid-json-body", name="default.invalid-json-body-test", methods=["POST"])
+     */
+    invalidJsonBodyTest(req, res) {
+
+        if (req.body === null && req._ERROR_BAD_JSON) {
+            res.error(this.buildErrorResponse({
+                error: req._ERROR_BAD_JSON
+            }, 400));
+        }
+
+    }
+
 }

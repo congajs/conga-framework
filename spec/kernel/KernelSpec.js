@@ -231,6 +231,27 @@ describe("Kernel", function() {
                 });
 
             });
+
+            it("should return a 400 error when there is a bad JSON body", (done) => {
+
+                request({
+
+                    uri: 'http://localhost:5555/error-test/invalid-json-body',
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: "{not-a-valid-body}"
+
+                }, (error, response, body) => {
+                    const json = JSON.parse(body);
+                    expect(response.statusCode).toEqual(400);
+                    expect(json.error).toEqual("Unexpected token o in JSON at position 1");
+                    done();
+                });
+
+            });
+
         });
 
     });
