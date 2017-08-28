@@ -45,6 +45,7 @@ services:
     # the event dispatcher
     event.dispatcher:
         constructor: "%event.dispatcher.constructor%"
+        arguments: ['@service_container']
 
     # the logger listener
     conga.logger.listener:
