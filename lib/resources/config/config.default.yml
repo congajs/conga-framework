@@ -8,6 +8,8 @@ framework:
 
     # express settings
     express:
+        compression: true
+        max_request_size: 5mb
 
     # the loggers
     logger:
