@@ -30,6 +30,7 @@ parameters:
     # builder
     conga.builder.constructor: "@conga/framework:builder/Builder"
 
+    # controller compiler
     conga.controller.compiler.constructor: "@conga/framework:compiler/ControllerCompiler"
 
 services:
@@ -60,6 +61,12 @@ services:
             - { name: kernel.event, event: kernel.server_boot, method: onKernelBoot, priority: 8 }
             - { name: kernel.event, event: kernel.server_boot, method: onKernelServerBoot, priority: 2048 }
             - { name: kernel.event, event: kernel.register_middleware, method: onKernelRegisterMiddleware, priority: 64 }
+
+    # the json body parser
+    conga.express.body.parser.json:
+        function: "@conga/framework:body-parser/json"
+        tags:
+            - { name: express.body.parser, id: "json" }
 
     # the filter runner
     conga.filter.runner:
