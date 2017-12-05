@@ -64,6 +64,34 @@ describe("Kernel", function() {
 
     });
 
+    describe("Request", function() {
+
+        it("should parse JSON body", (done) => {
+
+            request({
+
+                uri: 'http://localhost:5555/test/post-json',
+                method: 'POST',
+                json: true,
+                body: {
+                    message: "hello there",
+                    something: [1,2,3]
+                },
+                headers: {
+                    'content-type': 'application/json'
+                }
+
+            }, (error, response, body) => {
+
+                expect(body.body.message).toEqual('hello there');
+                expect(body.body.something).toEqual([1,2,3]);
+
+                done();
+
+            });
+        });
+
+    });
 
     describe("Response", function() {
 
@@ -115,7 +143,6 @@ describe("Kernel", function() {
 
             });
         });
-
 
         describe("Error Handler", function () {
 
