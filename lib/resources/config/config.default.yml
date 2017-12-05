@@ -39,3 +39,9 @@ framework:
                 route: ^/
                 controller: ""
                 action: ""
+
+    controller:
+
+        # the contexts in which controllers should be loaded
+        contexts:
+            - http

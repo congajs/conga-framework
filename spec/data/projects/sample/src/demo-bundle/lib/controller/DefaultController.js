@@ -14,6 +14,15 @@ module.exports = class DefaultController extends Controller {
     }
 
     /**
+     * @Route("/post-json", name="default.post-json", methods=["POST"])
+     */
+    postJson(req, res) {
+        res.return({
+            body: req.body
+        });
+    }
+
+    /**
      * @Route("/promise-resolve", name="default.promise-resolve", methods=["GET"])
      */
     promiseResolve(req, res) {
