@@ -8,7 +8,10 @@ framework:
 
     # express settings
     express:
+
+        # boolean or compression options object
         compression: true
+
         max_request_size: 5mb
 
     # the loggers
