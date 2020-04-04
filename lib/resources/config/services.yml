@@ -33,6 +33,12 @@ parameters:
     # controller compiler
     conga.controller.compiler.constructor: "@conga/framework:compiler/ControllerCompiler"
 
+    # model generator
+    conga.model.generator.constructor: "@conga/framework:generator/ModelGenerator"
+
+    # file generator
+    conga.file.generator.constructor: "@conga/framework:generator/FileGenerator"
+
 services:
 
     # the namespace resolver
@@ -94,3 +100,12 @@ services:
     conga.controller.compiler:
         constructor: "%conga.controller.compiler.constructor%"
         arguments: ['@service_container']
+
+    # conga model generator
+    conga.model.generator:
+        constructor: "%conga.model.generator.constructor%"
+        arguments: ['@service_container']
+
+    # file generator
+    conga.file.generator:
+        constructor: "%conga.file.generator.constructor%"
