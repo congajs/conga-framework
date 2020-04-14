@@ -7,10 +7,6 @@ services:
     async:
         constructor: async
 
-    # bcrypt module
-    bcrypt:
-        constructor: bcrypt
-
     # conga-annotations module
     conga.annotations:
         constructor: '@conga/annotations'
